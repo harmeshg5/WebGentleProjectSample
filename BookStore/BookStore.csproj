@@ -2,12 +2,30 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>808b482e-47a1-4412-97de-eed61965c66b</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Repository\" />
-    <Folder Include="Models\" />
-    <Folder Include="Views\Shared\" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Repository\BookRepository\" />
+    <Folder Include="wwwroot\books\cover\" />
+    <Folder Include="wwwroot\books\gallery\" />
+    <Folder Include="wwwroot\books\pdf\" />
   </ItemGroup>
 
 </Project>

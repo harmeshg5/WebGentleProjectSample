@@ -1,3 +1,6 @@
+using BookStore.Data;
+using BookStore.Repository;
+using BookStore.Repository.BookRepository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -16,9 +19,15 @@ namespace BookStore
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddDbContext<BookStoreContext>();
+            //services.AddMvc();
             services.AddControllersWithViews();
-            services.AddRazorPages();
+#if DEBUG
+            services.AddRazorPages().AddRazorRuntimeCompilation();
+#endif
+
+            services.AddScoped<IBookRepository, BookRepository>();
+            services.AddScoped<ILanguageRepository, LanguageRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -28,7 +37,7 @@ namespace BookStore
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseStaticFiles();
             app.UseRouting();
 
             //app.UseMvcWithDefaultRoute();
@@ -42,7 +51,7 @@ namespace BookStore
                 //});
             });
 
-            
+
         }
     }
 }

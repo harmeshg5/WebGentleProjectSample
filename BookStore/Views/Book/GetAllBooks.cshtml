@@ -1,0 +1,36 @@
+﻿
+
+@model IEnumerable<BookStore.Models.BookModel>;
+
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "All books";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>GetAllBooks</title>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <h3>Get All Books</h3>
+        <div class="row">
+            @foreach (var book in Model)
+            {
+                <div class="col-md-4">
+
+                    <partial name="_bookThumbnail" model="@book" />
+
+                </div>
+            }
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,8 +1,30 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model BookStore.Models.BookModel;
 @{
+    Layout = "_Layout";
+    ViewData["Title"] = "Home";
 }
 
 
-<h1>Hello Harmesh</h1>
+
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1>Welcome to Bookstore</h1>
+        <p class="lead text-muted">
+            Tihis isb sdfkjshdt  er,jwhekuds eew  we dfg cgff tysd  sedr e g df dgfh ty ty udf gds ,dkjhoiv kjshdf
+        </p>
+
+        <p>
+            <a href="#" class="btn btn-primary my-2">Search books</a>
+        </p>
+    </div>
+</section>
+
+<div class="py-5 bg-light">
+    <div class="container">
+        <h3 class="h3">Top books</h3>
+        @await Component.InvokeAsync("TopBooks", new { Count = 5 });
+
+        <vc:top-books count="2"></vc:top-books>
+
+    </div>
+</div>
